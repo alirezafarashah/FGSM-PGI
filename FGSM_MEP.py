@@ -147,7 +147,7 @@ def main():
     y_list=[]
     for i, (X, y) in enumerate(train_loader):
         cifar_x, cifar_y = X.cuda(), y.cuda()
-    print(cifar_x.shape)
+    # print(cifar_x.shape)
     import random
     def atta_aug(input_tensor, rst):
         batch_size = input_tensor.shape[0]
@@ -175,7 +175,7 @@ def main():
 
         batch_size = args.batch_size
         cur_order = np.random.permutation(num_of_example)
-        print(cur_order)
+        # print(cur_order)
         iter_num = num_of_example // batch_size + (0 if num_of_example % batch_size == 0 else 1)
         batch_idx = -batch_size
         start_epoch_time = time.time()
@@ -196,9 +196,9 @@ def main():
                 #all_delta.requires_grad = True
                 all_delta.data = clamp(alpha * torch.sign(all_delta), -epsilon, epsilon)
                 #all_delta.data[:cifar_x.size(0)] = clamp(all_delta[:cifar_x.size(0)], lower_limit - cifar_x, upper_limit - cifar_x)
-        print(all_delta[1])
+        # print(all_delta[1])
         idx = torch.randperm(cifar_x.shape[0])
-        print(idx)
+        # print(idx)
 
 
         cifar_x =cifar_x[idx, :,:,:].view(cifar_x.size())
@@ -206,9 +206,9 @@ def main():
         cifar_y = cifar_y[idx].view(cifar_y.size())
         all_delta=all_delta[idx, :, :, :].view(all_delta.size())
         all_momentum=all_momentum[idx, :, :, :].view(all_delta.size())
-        print(cifar_x.shape)
-        print(cifar_y.shape)
-        print(all_delta.shape)
+        # print(cifar_x.shape)
+        # print(cifar_y.shape)
+        # print(all_delta.shape)
         for i in range(iter_num):
 
             batch_idx = (batch_idx + batch_size) if batch_idx + batch_size < num_of_example else 0
@@ -223,7 +223,7 @@ def main():
             batch_size = X.shape[0]
             rst = torch.zeros(batch_size, 3, 32, 32).cuda()
             X, transform_info = atta_aug(X, rst)
-            print(X.shape)
+            # print(X.shape)
 
 
             # if i == 0:
