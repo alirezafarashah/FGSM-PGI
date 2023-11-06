@@ -319,6 +319,7 @@ def main():
 
         pgd_loss, pgd_acc = evaluate_pgd(test_loader, model_test, 10, 1)
         test_loss, test_acc = evaluate_standard(test_loader, model_test)
+        print(pgd_acc, test_acc)
         epoch_clean_list.append(test_acc)
         epoch_pgd_list.append(pgd_acc)
         logger.info('Test Loss \t Test Acc \t PGD Loss \t PGD Acc')
