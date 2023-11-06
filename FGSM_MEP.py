@@ -279,7 +279,7 @@ def main():
             # with amp.scale_loss(loss, opt) as scaled_loss:
             loss.backward()
             #torch.nn.utils.clip_grad_norm_(model.parameters(), 10)
-            print(loss)
+            # print(loss)
             opt.step()
             train_loss += loss.item() * y.size(0)
             train_acc += (output.max(1)[1] == y).sum().item()
