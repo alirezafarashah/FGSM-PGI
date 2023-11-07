@@ -108,7 +108,7 @@ def main():
         model = VGG('VGG19')
     elif args.model == "ResNet18":
         model = ResNet18()
-    elif args.model == "PreActResNest18":
+    elif args.model == "PreActResNet18":
         model = PreActResNet18()
     elif args.model == "WideResNet":
         model = WideResNet()
