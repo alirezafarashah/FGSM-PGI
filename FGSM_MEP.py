@@ -93,8 +93,8 @@ def main():
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed(args.seed)
 
-    train_loader, test_loader = get_loaders(args.data_dir, args.batch_size)
-    # train_loader, test_loader = get_all_loaders(args.data_dir,args.batch_size)
+    # train_loader, test_loader = get_loaders(args.data_dir, args.batch_size)
+    train_loader, test_loader = get_all_loaders(args.data_dir,args.batch_size)
     epsilon = (args.epsilon / 255.) / std
     alpha = (args.alpha / 255.) / std
 
