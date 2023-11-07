@@ -308,7 +308,7 @@ def main():
             model_test = VGG('VGG19').cuda()
         elif args.model == "ResNet18":
             model_test = ResNet18().cuda()
-        elif args.model == "PreActResNest18":
+        elif args.model == "PreActResNet18":
             model_test = PreActResNet18().cuda()
         elif args.model == "WideResNet":
             model_test = WideResNet().cuda()
