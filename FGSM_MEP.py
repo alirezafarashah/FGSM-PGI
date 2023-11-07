@@ -300,6 +300,7 @@ def main():
 
         epoch_time = time.time()
         lr = scheduler.get_lr()[0]
+        print(train_loss / train_n, train_acc / train_n)
         logger.info('%d \t %.1f \t \t %.4f \t %.4f \t %.4f',
                     epoch, epoch_time - start_epoch_time, lr, train_loss / train_n, train_acc / train_n)
 
